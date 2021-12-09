@@ -540,7 +540,7 @@ class gaussianPICP_se(gaussianPICP):
         A[:,1,1] = dot
         A[:,2,2] = dot
 
-        J = np.einsum("ki,kj->kij", normal_means, vecs) + A
+        J = -(np.einsum("ki,kj->kij", normal_means, vecs) + A)
 
         jacobian_norm = self.jacobianNormalNormalization(normal_means)
 
